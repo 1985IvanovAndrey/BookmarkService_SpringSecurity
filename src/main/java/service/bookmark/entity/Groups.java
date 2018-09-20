@@ -19,7 +19,7 @@ public class Groups {
     @Column
     private String nameGroup;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "group_id")
     private List<Bookmark> bookmarks;
 

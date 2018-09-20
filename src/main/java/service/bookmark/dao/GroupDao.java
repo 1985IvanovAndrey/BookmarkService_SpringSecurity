@@ -18,5 +18,7 @@ public interface GroupDao {
 
     public List<Bookmark> listBookmark();
 
+    void addBookmark(String bookmark,int id);
+
 
 }

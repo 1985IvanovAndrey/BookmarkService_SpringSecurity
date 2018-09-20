@@ -10,6 +10,7 @@ import service.bookmark.entity.Bookmark;
 import service.bookmark.entity.Groups;
 import service.bookmark.entity.Groups;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -55,5 +56,27 @@ public class GroupDaoImpl implements GroupDao {
         Session session = sessionFactory.getCurrentSession();
         List<Bookmark> listBookmark = session.createQuery("from Bookmark").list();
         return listBookmark;
+    }
+
+    @Override
+    public void addBookmark(String bookmark, int id) {
+        List<Groups> groups = new ArrayList<>();
+        List<Bookmark> bookmarkList = new ArrayList<>();
+        groups = listGroup();
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i).getId() == id) {
+                System.out.println("Good" + i);
+                for (int j = 0; j < groups.get(i).getBookmarks().size(); j++) {
+                    bookmarkList.add(groups.get(i).getBookmarks().get(j));
+                }
+            }
+        }
+        Bookmark bookmark1 = new Bookmark();
+        bookmark1.setBookmark(bookmark);
+        bookmarkList.add(bookmark1);
+        Groups group = getById(id);
+        group.setBookmarks(bookmarkList);
+        addGroup(group);
+
     }
 }

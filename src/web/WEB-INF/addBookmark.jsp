@@ -21,8 +21,8 @@
 <div class="col-4">
     <form action="/addBookmark">
         <div class="form-group">
-            <label for="b" class="col-form-label-sm"></label>
-            <input type="ID" class="form-control col-form-label-sm" id="b" name="b"
+            <label for="bookmark" class="col-form-label-sm"></label>
+            <input type="ID" class="form-control col-form-label-sm" id="bookmark" name="bookmark"
                    placeholder="enter bookmark">
         </div>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add bookmark">

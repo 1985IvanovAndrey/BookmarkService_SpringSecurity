@@ -51,35 +51,8 @@ public class StartController {
     }
 
     @RequestMapping("addBookmark")
-    public String addBookmark(@ModelAttribute("b") String b) {
-        List<Groups> groups = new ArrayList<>();
-        List<Bookmark> bookmarkList = new ArrayList<>();
-        groups = groupDao.listGroup();
-       for (int i = 0; i <groups.size() ; i++) {
-            if (groups.get(i).getId()==idik){
-                System.out.println("Good");
-                bookmarkList=groups.get(i).getBookmarks();
-                System.out.println(groups.g
-                //bookmarkList.addAll(groups.get(i).getBookmarks());
-                Bookmark bookmark=new Bookmark();
-                bookmark.setBookmark(groups.get(i).getBookmarks());
-                bookmarks2.add(bookmark);
-            }
-        }
-//        for (Groups group : groups) {
-//            if (group.getId()==idik){
-//                Bookmark bookmark=new Bookmark();
-//                //bookmark.setBookmark(group.
-//                bookmarkList.addAll(group.getBookmarks());
-//            }
-//        }
-        Bookmark bookmark1 = new Bookmark();
-        bookmark1.setBookmark(b);
-        bookmarkList.add(bookmark1);
-        Groups group = groupDao.getById(idik);
-        group.setBookmarks(bookmarkList);
-        groupDao.addGroup(group);
-        System.out.println(group);
+    public String addBookmark(@ModelAttribute("bookmark") String bookmark) {
+        groupDao.addBookmark(bookmark,idik);
         return "redirect:/";
     }
 }
