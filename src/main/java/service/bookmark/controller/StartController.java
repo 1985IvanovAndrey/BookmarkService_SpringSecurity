@@ -14,6 +14,7 @@ import service.bookmark.entity.Groups;
 import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -21,6 +22,8 @@ import java.util.List;
 @RequestMapping("/")
 public class StartController {
     int idik;
+    List<Bookmark> books;
+    String nameGroup;
 
     @Autowired
     private GroupDao groupDao;
@@ -28,6 +31,8 @@ public class StartController {
     @GetMapping
     public String getAllGroups(Model model) {
         model.addAttribute("listGroup", groupDao.listGroup());
+        model.addAttribute("listBookmarks", books);
+        model.addAttribute("nameGroup", nameGroup);
         return "index";
     }
 
@@ -45,14 +50,27 @@ public class StartController {
     }
 
     @RequestMapping("addInGroup/{id}")
-    public String addBookmarkInGroup(@PathVariable("id") int id) {
+    public String addBookmarkInGroup(@PathVariable("id") int id,Model model) {
         idik = id;
+       model.addAttribute("nameGroup1",groupDao.getById(id).getNameGroup());
+
         return "addBookmark";
     }
 
     @RequestMapping("addBookmark")
-    public String addBookmark(@ModelAttribute("bookmark") String bookmark) {
-        groupDao.addBookmark(bookmark,idik);
+    public String addBookmark(@ModelAttribute("bookmark") Bookmark bookmark) {
+        System.out.println(bookmark);
+        groupDao.addBookmark(bookmark, idik);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping("getBookmarksFromOneGroup/{id}")
+    public String getBookmarksFromOneGroup(@PathVariable("id") int id) {
+        idik = id;
+        List<Bookmark> book = groupDao.getBookmarksfromOneGroup(idik);
+        books=book;
+        nameGroup=groupDao.getById(id).getNameGroup();
         return "redirect:/";
     }
 }

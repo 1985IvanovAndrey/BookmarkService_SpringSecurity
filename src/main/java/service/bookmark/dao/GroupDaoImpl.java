@@ -59,7 +59,7 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
-    public void addBookmark(String bookmark, int id) {
+    public void addBookmark(Bookmark bookmark, int id) {
         List<Groups> groups = new ArrayList<>();
         List<Bookmark> bookmarkList = new ArrayList<>();
         groups = listGroup();
@@ -71,12 +71,25 @@ public class GroupDaoImpl implements GroupDao {
                 }
             }
         }
-        Bookmark bookmark1 = new Bookmark();
-        bookmark1.setBookmark(bookmark);
-        bookmarkList.add(bookmark1);
+        bookmarkList.add(bookmark);
         Groups group = getById(id);
         group.setBookmarks(bookmarkList);
         addGroup(group);
+    }
 
+    @Override
+    public List<Bookmark> getBookmarksfromOneGroup(int id) {
+        List<Bookmark> bookmarkList = new ArrayList<>();
+        List<Groups> groups = new ArrayList<>();
+        groups = listGroup();
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i).getId() == id) {
+                for (int j = 0; j < groups.get(i).getBookmarks().size(); j++) {
+                    bookmarkList.add(groups.get(i).getBookmarks().get(j));
+                }
+            }
+        }
+        System.out.println(bookmarkList);
+        return bookmarkList;
     }
 }

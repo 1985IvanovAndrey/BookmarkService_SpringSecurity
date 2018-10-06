@@ -36,14 +36,38 @@
                 <c:forEach items="${listGroup}" var="group">
                     <tr align="center">
                         <td>${group.nameGroup}</td>
-                            <td><a href="<c:url value='/remove/${group.id}'/>">del</a></td>
-                            <td><a href="<c:url value='/addInGroup/${group.id}'/>">+</a></td>
+                        <td><a href="<c:url value='/remove/${group.id}'/>">del</a></td>
+                        <td><a href="<c:url value='/addInGroup/${group.id}'/>">+</a></td>
+                        <td><a href="<c:url value='/getBookmarksFromOneGroup/${group.id}'/>">show</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
             </c:if>
         </div>
+    </div>
+    <c:if test="${!empty listBookmarks}">
+    Print bookmarks group "${nameGroup}"
+    <div class="row">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                    <tr align="center" class="table-active">
+                        <th>Bookmark</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${listBookmarks}" var="bookmark">
+                        <tr align="center">
+                            <td>${bookmark.bookmark}</td>
+                            <td><a href="<c:url value='${bookmark.urlBookmark}'/>">${bookmark.bookmark}</a></td>
+                            <td>${bookmark.description}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
+        </c:if>
     </div>
 </div>
 </body>

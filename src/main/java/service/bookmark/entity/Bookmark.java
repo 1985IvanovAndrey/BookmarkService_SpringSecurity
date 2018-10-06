@@ -20,8 +20,20 @@ public class Bookmark {
     @Column
     private String bookmark;
 
+    @Column(name = "url_bookmark")
+    private String urlBookmark;
+
+    @Column
+    private String description;
+
     public Bookmark(String bookmark) {
         this.bookmark = bookmark;
+    }
+
+    public Bookmark(String bookmark, String urlBookmark, String description) {
+        this.bookmark = bookmark;
+        this.urlBookmark = urlBookmark;
+        this.description = description;
     }
 
     public Bookmark() {

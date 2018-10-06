@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -18,12 +17,23 @@
     <title>Add Bookmark</title>
 </head>
 <body>
+Add bookmark in group "${nameGroup1}"
 <div class="col-4">
     <form action="/addBookmark">
         <div class="form-group">
             <label for="bookmark" class="col-form-label-sm"></label>
             <input type="ID" class="form-control col-form-label-sm" id="bookmark" name="bookmark"
                    placeholder="enter bookmark">
+        </div>
+        <div class="form-group">
+            <label for="urlBookmark" class="col-form-label-sm"></label>
+            <input type="ID" class="form-control col-form-label-sm" id="urlBookmark" name="urlBookmark"
+                   placeholder="enter urlBookmark">
+        </div>
+        <div class="form-group">
+            <label for="description" class="col-form-label-sm"></label>
+            <input type="ID" class="form-control col-form-label-sm" id="description" name="description"
+                   placeholder="enter description">
         </div>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add bookmark">
     </form>
