@@ -9,10 +9,4 @@ CREATE TABLE bookmark
   group_id     INTEGER
     CONSTRAINT fkjpwivgva369bxytq6a8gp9vp2
     REFERENCES groups
-);CREATE TABLE groups
-(
-  id        INTEGER NOT NULL
-    CONSTRAINT groups_pkey
-    PRIMARY KEY,
-  namegroup VARCHAR(255)
 );
