@@ -52,7 +52,7 @@
         </div>
     </div>
     <c:if test="${!empty listBookmarks}">
-    Print bookmarks group "${nameGroup}"
+   <h5> Print bookmarks group "${nameGroup}"</h5>
     <div class="row">
         <table class="table table-sm table-bordered">
             <thead>
@@ -64,8 +64,7 @@
             <tbody>
             <c:forEach items="${listBookmarks}" var="bookmark">
                 <tr align="center">
-                    <td>${bookmark.bookmark}</td>
-                    <td><a href="<c:url value='${bookmark.urlBookmark}'/>">${bookmark.bookmark}</a></td>
+                    <td><a href="http://${bookmark.urlBookmark}">${bookmark.bookmark}</a></td>
                     <td>${bookmark.description}</td>
                 </tr>
             </c:forEach>
