@@ -24,4 +24,6 @@ public interface GroupDao {
     void addBookmark(Bookmark bookmark, int id);
 
     List<Bookmark> getBookmarksfromOneGroup(int id);
+
+    boolean checkNewGroupOnDublicate(Groups group);
 }

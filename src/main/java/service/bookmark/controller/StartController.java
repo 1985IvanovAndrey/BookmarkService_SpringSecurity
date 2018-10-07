@@ -22,8 +22,10 @@ import java.util.List;
 @RequestMapping("/")
 public class StartController {
     int idik;
-    List<Bookmark> books;
+    List<Bookmark> bookmarks;
     String nameGroup;
+    String name;
+    String message;
 
     @Autowired
     private GroupDao groupDao;
@@ -31,15 +33,33 @@ public class StartController {
     @GetMapping
     public String getAllGroups(Model model) {
         model.addAttribute("listGroup", groupDao.listGroup());
-        model.addAttribute("listBookmarks", books);
+        model.addAttribute("listBookmarks", bookmarks);
         model.addAttribute("nameGroup", nameGroup);
+        model.addAttribute("name", name);
+        model.addAttribute("message", message);
+        message = null;
+        name = null;
         return "index";
     }
 
     @RequestMapping("add")
     public String addGroup(@ModelAttribute("group") Groups group) {
-        groupDao.addGroup(group);
-        return "redirect:/";
+        int count = 0;
+        if (groupDao.checkNewGroupOnDublicate(group) == true) {
+            message = "Уже есть группа с названием " + group.getNameGroup();
+            count++;
+        }
+        if (group.getNameGroup() == null) {
+            name = "group";
+            count++;
+
+        }
+        if (count > 0) {
+            return "redirect:/";
+        } else {
+            groupDao.addGroup(group);
+            return "redirect:/";
+        }
     }
 
     @RequestMapping("remove/{id}")
@@ -86,8 +106,8 @@ public class StartController {
     @RequestMapping("getBookmarksFromOneGroup/{id}")
     public String getBookmarksFromOneGroup(@PathVariable("id") int id) {
         idik = id;
-        List<Bookmark> book = groupDao.getBookmarksfromOneGroup(idik);
-        books = book;
+        List<Bookmark> bookmarkList = groupDao.getBookmarksfromOneGroup(idik);
+        bookmarks = bookmarkList;
         nameGroup = groupDao.getById(id).getNameGroup();
         return "redirect:/";
     }

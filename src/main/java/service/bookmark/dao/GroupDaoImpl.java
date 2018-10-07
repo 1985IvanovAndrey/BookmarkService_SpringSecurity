@@ -92,5 +92,17 @@ public class GroupDaoImpl implements GroupDao {
         System.out.println(bookmarkList);
         return bookmarkList;
     }
+
+    @Override
+    public boolean checkNewGroupOnDublicate(Groups group) {
+        boolean chech = false;
+        List<Groups> groupsList = listGroup();
+        for (Groups groups : groupsList) {
+            if (groups.getNameGroup().equals(group.getNameGroup())) {
+                chech = true;
+            }
+        }
+        return chech;
+    }
 }
 

@@ -20,15 +20,20 @@
 <div class="col-4">
     <form action="/add">
         <div class="form-group">
-            <label for="group" class="col-form-label-sm">Create new group</label>
+            <label for="group" class="col-form-label-sm"><h4>Create new group:</h4></label>
             <input type="ID" class="form-control col-form-label-sm" id="group" name="group"
                    placeholder="name group">
         </div>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add group">
     </form>
-
+    <c:if test="${not empty name}">
+        Неверно указано название ${name}
+    </c:if>
+    <c:if test="${not empty message}">
+        ${message}
+    </c:if>
     <c:if test="${!empty listGroup}">
-    Groups:
+    <h4>Groups:</h4>
     <div class="col-4">
         <div class="table-responsive-sm">
             <table class="table table-sm table-bordered">
@@ -49,23 +54,23 @@
     <c:if test="${!empty listBookmarks}">
     Print bookmarks group "${nameGroup}"
     <div class="row">
-                <table class="table table-sm table-bordered">
-                    <thead>
-                    <tr align="center" class="table-active">
-                        <th>Bookmark</th>
-                        <th>Description</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${listBookmarks}" var="bookmark">
-                        <tr align="center">
-                            <td>${bookmark.bookmark}</td>
-                            <td><a href="<c:url value='${bookmark.urlBookmark}'/>">${bookmark.bookmark}</a></td>
-                            <td>${bookmark.description}</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+        <table class="table table-sm table-bordered">
+            <thead>
+            <tr align="center" class="table-active">
+                <th>Bookmark</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${listBookmarks}" var="bookmark">
+                <tr align="center">
+                    <td>${bookmark.bookmark}</td>
+                    <td><a href="<c:url value='${bookmark.urlBookmark}'/>">${bookmark.bookmark}</a></td>
+                    <td>${bookmark.description}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
         </c:if>
     </div>
 </div>
