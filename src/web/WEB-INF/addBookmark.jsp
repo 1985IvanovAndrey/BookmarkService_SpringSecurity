@@ -18,22 +18,32 @@
 </head>
 <body>
 Add bookmark in group "${nameGroup1}"
-<div class="col-4">
+<div class="col-5">
     <form action="/addBookmark">
         <div class="form-group">
             <label for="bookmark" class="col-form-label-sm"></label>
             <input type="ID" class="form-control col-form-label-sm" id="bookmark" name="bookmark"
-                   placeholder="enter bookmark">
+                   placeholder="enter name_bookmark">
+            <c:if test="${not empty name_bookmark}">
+                <h4>Не заполено поле ${name_bookmark}!</h4>
+            </c:if>
+
         </div>
         <div class="form-group">
             <label for="urlBookmark" class="col-form-label-sm"></label>
             <input type="ID" class="form-control col-form-label-sm" id="urlBookmark" name="urlBookmark"
-                   placeholder="enter urlBookmark">
+                   placeholder="enter url_bookmark">
+            <c:if test="${not empty url}">
+                <h4>Не заполено поле ${url}!</h4>
+            </c:if>
         </div>
         <div class="form-group">
             <label for="description" class="col-form-label-sm"></label>
             <input type="ID" class="form-control col-form-label-sm" id="description" name="description"
-                   placeholder="enter description">
+                   placeholder="enter description_bookmark">
+            <c:if test="${not empty description}">
+                <h4>Не заполено поле ${description}!</h4>
+            </c:if>
         </div>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add bookmark">
     </form>

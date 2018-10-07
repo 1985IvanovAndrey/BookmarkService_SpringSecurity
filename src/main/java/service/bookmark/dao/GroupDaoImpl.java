@@ -93,3 +93,4 @@ public class GroupDaoImpl implements GroupDao {
         return bookmarkList;
     }
 }
+
