@@ -11,7 +11,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-217-235-137.eu-west-1.compute.amazonaws.com:5432/da007744oo6j0l</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-54-217-235-137.eu-west-1.compute.amazonaws.com:5432/da007744oo6j0l?sslmode=require</jdbc-url>
       <driver-properties>
         <property name="ssl" value="true" />
         <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />
