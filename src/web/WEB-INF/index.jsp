@@ -27,17 +27,16 @@
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add group">
     </form>
     <c:if test="${not empty name}">
-        Неверно указано название ${name}
+        <h5> Неверно указано название ${name}</h5>
     </c:if>
     <c:if test="${not empty message}">
-        ${message}
+        <h5>${message}</h5>
     </c:if>
     <c:if test="${!empty listGroup}">
     <h4>Groups:</h4>
     <div class="col-4">
         <div class="table-responsive-sm">
             <table class="table table-sm table-bordered">
-                <tbody>
                 <c:forEach items="${listGroup}" var="group">
                     <tr align="center">
                         <td>${group.nameGroup}</td>
@@ -46,13 +45,12 @@
                         <td><a href="<c:url value='/getBookmarksFromOneGroup/${group.id}'/>">show</a></td>
                     </tr>
                 </c:forEach>
-                </tbody>
             </table>
             </c:if>
         </div>
     </div>
     <c:if test="${!empty listBookmarks}">
-   <h5> Print bookmarks group "${nameGroup}"</h5>
+    <h5> Print bookmarks group "${nameGroup}"</h5>
     <div class="row">
         <table class="table table-sm table-bordered">
             <thead>

@@ -39,6 +39,7 @@ public class StartController {
         model.addAttribute("message", message);
         message = null;
         name = null;
+        bookmarks=null;
         return "index";
     }
 
