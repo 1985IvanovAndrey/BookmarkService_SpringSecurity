@@ -19,7 +19,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.9.RELEASE" />
-          <element id="library" level="project" name="Maven: postgresql:postgresql:9.1-901-1.jdbc4" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.4.1208" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.20" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.4.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
