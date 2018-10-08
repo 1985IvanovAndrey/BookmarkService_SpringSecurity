@@ -15,8 +15,13 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
     <title>BookmarkService</title>
+    <link href="../nestednav.css" rel="stylesheet">
 </head>
 <body>
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
 <div class="col-4">
     <form action="/add">
         <div class="form-group">
@@ -34,7 +39,7 @@
     </c:if>
     <c:if test="${!empty listGroup}">
     <h4>Groups:</h4>
-    <div class="col-4">
+    <%--<div class="col-4">--%>
         <div class="table-responsive-sm">
             <table class="table table-sm table-bordered">
                 <c:forEach items="${listGroup}" var="group">
@@ -48,10 +53,9 @@
             </table>
             </c:if>
         </div>
-    </div>
+    <%--</div>--%>
     <c:if test="${!empty listBookmarks}">
-    <h5> Print bookmarks group "${nameGroup}"</h5>
-    <div class="row">
+        <h5> Print bookmarks group "${nameGroup}"</h5>
         <table class="table table-sm table-bordered">
             <thead>
             <tr align="center" class="table-active">
@@ -68,8 +72,12 @@
             </c:forEach>
             </tbody>
         </table>
-        </c:if>
-    </div>
+    </c:if>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"
+          media="screen">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"
+          media="screen">
+    <link href="../nestednav.css" rel="stylesheet">
 </div>
 </body>
 </html>

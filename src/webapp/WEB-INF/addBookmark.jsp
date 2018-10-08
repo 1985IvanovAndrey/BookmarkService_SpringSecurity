@@ -47,6 +47,10 @@
         </div>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add bookmark">
     </form>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"
+          media="screen">
+    <link href="../nestednav.css" rel="stylesheet">
 </div>
 
 </body>
