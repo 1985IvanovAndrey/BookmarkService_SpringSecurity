@@ -56,7 +56,6 @@
             <version>4.3.9.RELEASE</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
         <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -68,6 +67,10 @@
             <artifactId>lombok</artifactId>
             <version>1.16.20</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.postgresql</groupId>-->
+            <!--<artifactId>postgresql</artifactId>-->
+        <!--</dependency>-->
 
         <!-- HIBERNATE -->
         <dependency>
