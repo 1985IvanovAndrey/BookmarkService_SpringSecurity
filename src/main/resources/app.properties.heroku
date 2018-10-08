@@ -1,5 +1,5 @@
 spring.datasource.driverClassName=org.postgresql.Driver
-spring.datasource.url=jdbc:postgresql://ec2-54-217-235-137.eu-west-1.compute.amazonaws.com:5432/da007744oo6j0l?sslmode=require
+spring.datasource.url=jdbc:postgresql://ec2-54-217-235-137.eu-west-1.compute.amazonaws.com:5432/da007744oo6j0l
 spring.datasource.username=gecrouuynxlfle
 spring.datasource.password=de7c2c91744bbfbcbc4dfd5f5beaaeb90d07a4cb059432b6c9076757d18077b1
 
