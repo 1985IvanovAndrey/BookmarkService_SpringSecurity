@@ -19,7 +19,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("service.bookmark")
-@PropertySource("classpath:app.properties.test")
+@PropertySource("classpath:app.properties.heorku")
 public class HibernateConfig {
 
     @Value("${spring.datasource.username}")
