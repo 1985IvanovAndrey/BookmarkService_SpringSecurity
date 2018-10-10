@@ -25,7 +25,7 @@
             <input type="ID" class="form-control col-form-label-sm" id="bookmark" name="bookmark"
                    placeholder="enter name_bookmark">
             <c:if test="${not empty name_bookmark}">
-                <h5>Не заполено поле ${name_bookmark}!</h5>
+                <h5><font color="red"> Не заполено поле ${name_bookmark}!!!</font></h5>
             </c:if>
 
         </div>
@@ -34,7 +34,7 @@
             <input type="ID" class="form-control col-form-label-sm" id="urlBookmark" name="urlBookmark"
                    placeholder="enter url_bookmark">
             <c:if test="${not empty url}">
-                <h5>Не заполено поле ${url}!</h5>
+                <h5><font color="red"> Не заполено поле ${url}!!!!</font></h5>
             </c:if>
         </div>
         <div class="form-group">
@@ -42,10 +42,16 @@
             <input type="ID" class="form-control col-form-label-sm" id="description" name="description"
                    placeholder="enter description_bookmark">
             <c:if test="${not empty description}">
-                <h5>Не заполено поле ${description}!</h5>
+                <h5><font color="red">Не заполено поле ${description}!!!</font></h5>
             </c:if>
         </div>
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add bookmark">
+    </form>
+    <c:if test="${not empty addBookmark}">
+        <h4><font color="#ff4324">${addBookmark}</font></h4>
+    </c:if>
+    <form action="/getHome">
+        <input class=" btn btn-outline-primary btn-sm" type="submit" value="Home">
     </form>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"

@@ -12,6 +12,8 @@ import service.bookmark.entity.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Transactional
 @Repository
@@ -71,7 +73,7 @@ public class GroupDaoImpl implements GroupDao {
                 }
             }
         }
-        bookmarkList.add(bookmark);
+        bookmarkList.add(checkUrlBookmark(bookmark));
         Groups group = getById(id);
         group.setBookmarks(bookmarkList);
         addGroup(group);
@@ -103,6 +105,16 @@ public class GroupDaoImpl implements GroupDao {
             }
         }
         return chech;
+    }
+    public Bookmark checkUrlBookmark(Bookmark bookmark){
+        Pattern p=Pattern.compile("^(http?)");
+        Matcher m=p.matcher(bookmark.getUrlBookmark());
+        if (m.find()){
+            return bookmark;
+        }else {
+            bookmark.setUrlBookmark("http://"+bookmark.getUrlBookmark());
+            return bookmark;
+        }
     }
 }
 

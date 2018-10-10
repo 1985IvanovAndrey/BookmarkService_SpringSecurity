@@ -12,8 +12,9 @@ import service.bookmark.entity.Bookmark;
 import service.bookmark.entity.Groups;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.List;
 
 
@@ -38,7 +39,7 @@ public class StartController {
         model.addAttribute("message", message);
         message = null;
         name = null;
-        bookmarks=null;
+        //bookmarks=null;
         return "index";
     }
 
@@ -66,6 +67,7 @@ public class StartController {
     public String deleteGroup(@PathVariable("id") int id) {
         groupDao.deleteGroup(id);
         System.out.println(id);
+        bookmarks = null;
         return "redirect:/";
     }
 
@@ -98,7 +100,9 @@ public class StartController {
 
         } else {
             groupDao.addBookmark(bookmark, idik);
-            return "redirect:/";
+            model.addAttribute("addBookmark","Bookmark added to group "+"\""+groupDao.getById(idik).getNameGroup()+"\""+"!!!!");
+            //return "redirect:/";
+            return "addBookmark";
         }
     }
 
@@ -109,6 +113,11 @@ public class StartController {
         List<Bookmark> bookmarkList = groupDao.getBookmarksfromOneGroup(idik);
         bookmarks = bookmarkList;
         nameGroup = groupDao.getById(id).getNameGroup();
+        return "redirect:/";
+    }
+
+    @RequestMapping("getHome")
+    public String getHome(){
         return "redirect:/";
     }
 }

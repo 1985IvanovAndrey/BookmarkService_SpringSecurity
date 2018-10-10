@@ -32,10 +32,10 @@
         <input class=" btn btn-outline-primary btn-sm" type="submit" value="Add group">
     </form>
     <c:if test="${not empty name}">
-        <h5> Неверно указано название ${name}</h5>
+        <h4><font color="red"> Неверно указано название ${name}!!!</font></h4>
     </c:if>
     <c:if test="${not empty message}">
-        <h5>${message}</h5>
+        <h4><font color="red">${message}!!!</font></h4>
     </c:if>
     <c:if test="${!empty listGroup}">
     <h4>Groups:</h4>
@@ -66,7 +66,8 @@
             <tbody>
             <c:forEach items="${listBookmarks}" var="bookmark">
                 <tr align="center">
-                    <td><a href="http://${bookmark.urlBookmark}">${bookmark.bookmark}</a></td>
+                    <td><a href="${bookmark.urlBookmark}">${bookmark.bookmark}</a></td>
+                    <%--<td><a href="<c:url value='/checkUrl/${bookmark.id}'/>">${bookmark.bookmark}</a></td>--%>
                     <td>${bookmark.description}</td>
                 </tr>
             </c:forEach>
