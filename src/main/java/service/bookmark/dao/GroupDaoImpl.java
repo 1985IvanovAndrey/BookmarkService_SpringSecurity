@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import service.bookmark.entity.Bookmark;
 import service.bookmark.entity.Groups;
-import service.bookmark.entity.Groups;
 
 import java.util.ArrayList;
 import java.util.List;

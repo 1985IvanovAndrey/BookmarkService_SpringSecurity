@@ -2,7 +2,6 @@ package service.bookmark.dao;
 
 import service.bookmark.entity.Bookmark;
 import service.bookmark.entity.Groups;
-import service.bookmark.entity.Groups;
 
 import java.util.List;
 
